@@ -61,6 +61,7 @@ Cada solicitação recebida deve possuir um fluxo de aprovação e emissão, com
 **Requisitos Funcionais**
 
 _RF01 – Cadastro de Solicitações [POST]_
+
 Ao criar um novo registro de Solicitação para um Aluno ativo, deve receber as informações:
 
 * id - int
@@ -73,9 +74,11 @@ Ao criar um novo registro de Solicitação para um Aluno ativo, deve receber as 
 * prioridade - Enum (URGENTE, ALTA, NORMAL)
 
 _RF01.1 – Cadastro demais Entidades [POST] (**OPCIONAL**)_
+
 Criar endpoints para criação/alteração/remoção das demais entidades Aluno, Curso, TipoDocumento e Status.
 
 _RF02 – Consulta Solicitações [GET]_
+
 Criar endpoints para pesquisar registros de Solicitação contendo filtros:
 
 * Aluno.nome
@@ -94,6 +97,7 @@ Deve ser possivel verificar:
 * Documentos mais solicitados
 
 _RF03 – Alteração de Status [PATCH]_
+
 Uma solicitação deve seguir um fluxo de aprovação de acordo com cada reponsável por uma etapa. Assim, implementar regras para atualizar a Solicitação:
 
 ABERTA -> EM_ANALISE -> APROVADA -> EMITIDA
@@ -104,18 +108,22 @@ Ao alterar o status de uma solicitação, será necessário informar o código d
 Atualizar a dataAlteracao da Solicitação.
 
 _RF04 - Segurança_
+
 Todos os endpoints existentes devem exigir a passagem de um Token JWT para seu funcionamento, o formato fica a sua escolha.
 
 _RF05 – Auditoria_
+
 Criar tabelas de auditoria para todas as entidades, registrando todas as movimentações realizadas nas mesmas. 
 
 _RF06 – Dashboard_
+
 Montar dashboard onde seja possível visualizar e analisar os dados do RF03.
 
 ## ESTRUTURAS PRIMÁRIAS
 Aqui uma sugestão de estrutura parcial para você seguir, melhorias ou correções são bem-vindas e encorajadas.
 
 **_Classe SOLICITACAO_**
+
 * "id" - int (auto-gerado)
 * "aluno" - Relacionamento com a classe Aluno
 * "curso" - Relacionamento com a classe Curso
@@ -126,20 +134,24 @@ Aqui uma sugestão de estrutura parcial para você seguir, melhorias ou correç�
 * "prioridade" - Enum
 
 **_Classe ALUNO**
+
 * "id" - int (auto-gerado)
 * "nome" - string
 * "solicitacoes" - Set de Solicitacao
 * "ativo" - boolean
 
 **_Classe CURSO**
+
 * "id" - int (auto-gerado)
 * "nome" - string
 
 **_Classe TIPODOCUMENTO**
+
 * "id" - int (auto-gerado)
 * "nome" - string
 
 **_Classe STATUS**
+
 * "id" - int (auto-gerado)
 * "nome" - string
 * "responsavel" - int
