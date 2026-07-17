@@ -12,7 +12,7 @@ public class EtapaFluxo {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Long id;
 
     @ManyToOne
     @JoinColumn(name = "tipo_documento_id", nullable = false)
@@ -32,8 +32,8 @@ public class EtapaFluxo {
     public EtapaFluxo() {}
 
     // Getters e Setters
-    public Integer getId() { return id; }
-    public void setId(Integer id) { this.id = id; }
+    public Long getId() { return id; }
+    public void setId(Long id) { this.id = id; }
 
     public Documento getTipoDocumento() { return tipoDocumento; }
     public void setTipoDocumento(Documento tipoDocumento) { this.tipoDocumento = tipoDocumento; }
