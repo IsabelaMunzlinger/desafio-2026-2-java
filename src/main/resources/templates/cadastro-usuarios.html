@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Usuários</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f2f5;
+            padding: 40px;
+            margin: 0;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            color: #003366;
+            margin-top: 0;
+            border-bottom: 2px solid #f0f2f5;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #333;
+        }
+        input[type="text"], input[type="email"], input[type="password"], select {
+            width: 100%;
+            padding: 10px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            font-family: inherit;
+            box-sizing: border-box;
+            font-size: 15px;
+        }
+        input:focus, select:focus {
+            outline: none;
+            border-color: #0056b3;
+        }
+
+        button {
+            padding: 10px 15px;
+            background-color: #0056b3;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 16px;
+            margin-top: 10px;
+            font-family: inherit;
+        }
+        button:hover {
+            background-color: #004494;
+        }
+
+        .btn-voltar {
+            background-color: #6c757d;
+            margin-top: 15px;
+        }
+        .btn-voltar:hover {
+            background-color: #5a6268;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Cadastrar Novo Usuário</h2>
+
+    <form id="formUsuario">
+        <div class="form-group">
+            <label for="nome">Nome Completo:</label>
+            <input type="text" id="nome" placeholder="Digite o nome completo" required>
+        </div>
+
+        <div class="form-group">
+            <label for="email">E-mail (Login):</label>
+            <input type="email" id="email" placeholder="usuario@email.com" required>
+        </div>
+
+        <div class="form-group">
+            <label for="senha">Senha:</label>
+            <input type="password" id="senha" placeholder="Crie uma senha de acesso" required>
+        </div>
+
+        <div class="form-group">
+            <label for="perfil">Perfil de Acesso:</label>
+            <select id="perfil" required>
+                <option value="">Selecione um perfil...</option>
+                <option value="ALUNO">Aluno</option>
+                <option value="SECRETARIA">Secretaria</option>
+                <option value="COORDENADOR">Coordenador</option>
+                <option value="ADMIN">Administrador</option>
+            </select>
+        </div>
+
+        <button type="submit">Salvar Usuário</button>
+    </form>
+
+    <button type="button" class="btn-voltar" onclick="window.location.href='/menu'">Voltar ao Menu</button>
+</div>
+
+<script th:src="@{/cadastro-usuarios.js}"></script>
+</body>
+</html>
