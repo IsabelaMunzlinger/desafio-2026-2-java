@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Histórico do Pedido</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f2f5;
+            padding: 40px;
+            margin: 0;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            color: #003366;
+            margin-top: 0;
+            border-bottom: 2px solid #f0f2f5;
+            padding-bottom: 10px;
+        }
+        .subtitle {
+            color: #666;
+            margin-bottom: 25px;
+            font-size: 1.1em;
+        }
+
+        .timeline { border-left: 3px solid #0056b3; padding-left: 20px; margin-left: 10px; margin-top: 20px; }
+        .timeline-item { margin-bottom: 25px; position: relative; }
+        .timeline-item::before {
+            content: ''; position: absolute; left: -28.5px; top: 0; width: 14px; height: 14px;
+            background: white; border: 3px solid #0056b3; border-radius: 50%;
+        }
+
+        .timeline-data { font-size: 0.85em; color: #888; font-weight: bold; margin-bottom: 4px; }
+        .timeline-status { font-size: 1.2em; font-weight: 600; color: #333; margin: 0; }
+        .timeline-resp { font-size: 0.9em; color: #555; margin-top: 4px; }
+        .timeline-obs { background: #f8f9fa; border-left: 3px solid #17a2b8; padding: 10px; margin-top: 10px; font-style: italic; font-size: 0.9em; border-radius: 0 4px 4px 0; }
+
+        .btn-voltar {
+            background-color: #6c757d;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-family: inherit;
+            margin-top: 20px;
+        }
+        .btn-voltar:hover { background-color: #5a6268; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Histórico de Movimentações</h2>
+    <div class="subtitle">Acompanhamento do Pedido <strong>#<span id="pedidoId"></span></strong></div>
+
+    <div class="timeline" id="timelineContainer">
+        <p>Carregando histórico...</p>
+    </div>
+
+    <button class="btn-voltar" onclick="window.history.back()">Voltar ao Menu</button>
+</div>
+
+<script src="/historico-pedido.js"></script>
+</body>
+</html>
