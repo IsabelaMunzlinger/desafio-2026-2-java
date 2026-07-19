@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Portal de Documentos</title>
+    <style>
+        * {
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+        }
+        
+        body { 
+            background-color: #f0f2f5; 
+            display: flex; 
+            flex-direction: column; 
+            min-height: 100vh;
+        }
+
+        .header {
+            background-color: #003366;
+            color: white;
+            padding: 20px 40px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .header h1 {
+            font-size: 22px;
+            font-weight: 600;
+        }
+
+        .main-content {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .login-box {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .login-box h2 {
+            color: #003366;
+            margin-bottom: 25px;
+            text-align: center;
+            font-size: 24px;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #555;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 15px;
+            transition: border-color 0.3s;
+        }
+
+        .input-group input:focus {
+            border-color: #003366;
+            outline: none;
+        }
+
+        button {
+            width: 100%;
+            padding: 14px;
+            background-color: #0056b3;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background-color: #004494;
+        }
+
+        #mensagemErro {
+            color: #d93025;
+            background-color: #fce8e6;
+            padding: 12px;
+            border-radius: 6px;
+            font-size: 14px;
+            display: none; /* Fica invisível até o JS ativar */
+            margin-top: 20px;
+            text-align: center;
+            border: 1px solid #f2a6a2;
+        }
+
+    </style>
+</head>
+<body>
+
+<header class="header">
+    <h1>Portal de Documentos</h1>
+</header>
+
+<main class="main-content">
+    <div class="login-box">
+        <h2>Acesso ao Sistema</h2>
+        <form id="formLogin">
+            <div class="input-group">
+                <label for="email">E-mail</label>
+                <input type="email" id="email" placeholder="ex: seu.nome@email.com" required>
+            </div>
+
+            <div class="input-group">
+                <label for="senha">Senha</label>
+                <input type="password" id="senha" placeholder="Senha" required>
+            </div>
+
+            <button type="submit">Entrar no Sistema</button>
+        </form>
+
+        <div id="mensagemErro">
+            E-mail ou senha incorretos! Verifique suas credenciais.
+        </div>
+    </div>
+</main>
+
+<script th:src="@{/app.js}"></script>
+</body>
+</html>
