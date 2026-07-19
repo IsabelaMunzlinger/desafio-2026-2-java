@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consulta de Status</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f0f2f5; padding: 40px; margin: 0; }
+        .container { max-width: 600px; margin: 0 auto; background: white; padding: 30px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); text-align: center; }
+        h2 { color: #003366; margin-top: 0; border-bottom: 2px solid #f0f2f5; padding-bottom: 10px; margin-bottom: 20px; }
+
+        .form-group { margin-bottom: 20px; text-align: left; }
+        label { display: block; margin-bottom: 8px; font-weight: 600; color: #333; }
+        select { width: 100%; padding: 12px; border-radius: 4px; border: 1px solid #ccc; font-size: 16px; cursor: pointer; }
+
+        .resultado-box {
+            margin-top: 30px; padding: 20px; background-color: #e9ecef;
+            border-radius: 8px; font-size: 24px; font-weight: bold;
+            color: #0056b3; display: none; /* Começa invisível */
+        }
+
+        .btn-voltar { padding: 10px 15px; background-color: #6c757d; color: white; border: none; border-radius: 4px; cursor: pointer; width: 100%; font-size: 16px; margin-top: 30px; }
+        .btn-voltar:hover { background-color: #5a6268; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Consulta de Solicitações</h2>
+
+    <div class="form-group">
+        <label for="selectStatus">Selecione uma etapa para analisar:</label>
+        <select id="selectStatus">
+            <option value="">Carregando opções...</option>
+        </select>
+    </div>
+
+    <div id="boxResultado" class="resultado-box"></div>
+
+    <button type="button" class="btn-voltar" onclick="window.location.href='/menu'">Voltar ao Menu</button>
+</div>
+
+<script src="/dashboard.js"></script>
+</body>
+</html>
