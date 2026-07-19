@@ -46,6 +46,7 @@ public class SecurityConfigurations {
                             "/cadastro-status",
                             "/meus-pedidos",
                             "/historico-pedido",
+                            "/estatisticas",
                             "/error",
                             "/*.html",
                             "/*.js",
@@ -57,11 +58,16 @@ public class SecurityConfigurations {
                     req.requestMatchers(HttpMethod.POST, "/auth/login").permitAll();
 
                     // Cursos
+                    req.requestMatchers(HttpMethod.GET, "/api/cursos/meus-cursos").hasRole("ALUNO");
+                    req.requestMatchers(HttpMethod.GET, "/api/cursos").authenticated();
                     req.requestMatchers(HttpMethod.POST, "/api/cursos").hasRole("ADMIN");
                     req.requestMatchers(HttpMethod.PUT, "/api/cursos/**").hasRole("ADMIN");
                     req.requestMatchers(HttpMethod.DELETE, "/api/cursos/**").hasRole("ADMIN");
 
+                    req.requestMatchers(HttpMethod.GET, "/api/dashboard/estatisticas").hasRole("ADMIN");
+
                     // Usuários
+                    req.requestMatchers(HttpMethod.GET, "/api/usuarios/alunos").authenticated();
                     req.requestMatchers(HttpMethod.POST, "/api/usuarios").hasRole("ADMIN");
                     req.requestMatchers(HttpMethod.PUT, "/api/usuarios/**").hasRole("ADMIN");
                     req.requestMatchers(HttpMethod.DELETE, "/api/usuarios/**").hasRole("ADMIN");
