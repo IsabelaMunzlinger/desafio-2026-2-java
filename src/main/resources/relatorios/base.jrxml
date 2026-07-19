@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports"
+			  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+			  xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd"
+			  name="base" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20"
+			  whenNoDataType="AllSectionsNoDetail">
+
+	<!-- Parâmetros enviados -->
+	<parameter name="nomeDocumento" class="java.lang.String"/>
+	<parameter name="nomeAluno" class="java.lang.String"/>
+	<parameter name="nomeCurso" class="java.lang.String"/>
+
+	<title>
+		<band height="200" splitType="Stretch">
+			<!-- Título do Documento -->
+			<textField>
+				<reportElement x="0" y="30" width="555" height="40"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="24" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{nomeDocumento}.toUpperCase()]]></textFieldExpression>
+			</textField>
+
+			<!-- Texto do Documento -->
+			<textField textAdjust="StretchHeight">
+				<reportElement x="20" y="100" width="515" height="80"/>
+				<textElement textAlignment="Justified" verticalAlignment="Top">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Certificamos para os devidos fins que o(a) aluno(a) " + $P{nomeAluno} + ", regularmente matriculado(a) no curso de " + $P{nomeCurso} + ", emitiu este documento de " + $P{nomeDocumento} + " através do Sistema de Solicitação de Documentos.\n\nEste documento possui validade institucional e foi autenticado eletronicamente pelo sistema, dispensando assinatura física."]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+</jasperReport>
