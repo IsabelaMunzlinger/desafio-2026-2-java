@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciamento de Status</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f2f5;
+            padding: 40px;
+            margin: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            color: #003366;
+            margin-top: 0;
+            border-bottom: 2px solid #f0f2f5;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        .form-group { margin-bottom: 20px; }
+        label { display: block; margin-bottom: 8px; font-weight: 600; color: #333; }
+
+        input[type="text"], select {
+            width: 100%; padding: 10px; border-radius: 4px;
+            border: 1px solid #ccc; font-family: inherit; font-size: 15px;
+            box-sizing: border-box;
+        }
+        input:focus, select:focus { outline: none; border-color: #0056b3; }
+
+        .dica { color: #666; font-size: 0.85em; margin-top: 5px; display: block; }
+
+        button {
+            padding: 10px 15px; background-color: #0056b3; color: white;
+            border: none; border-radius: 4px; cursor: pointer;
+            width: 100%; font-size: 16px; margin-top: 10px;
+        }
+        button:hover { background-color: #004494; }
+
+        .btn-voltar { background-color: #6c757d; margin-top: 15px; }
+        .btn-voltar:hover { background-color: #5a6268; }
+
+        hr { margin: 40px 0; border: 0; border-top: 1px solid #eee; }
+        table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+        th, td { padding: 12px; text-align: left; border-bottom: 1px solid #ddd; }
+        th { background-color: #f8f9fa; color: #333; }
+
+        .btn-excluir {
+            width: auto; padding: 6px 12px; font-size: 14px; margin: 0;
+            background-color: #dc3545;
+        }
+        .btn-excluir:hover { background-color: #c82333; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Gerenciamento de Status</h2>
+
+    <form id="formStatus">
+        <div class="form-group">
+            <label for="nome">Nome do Status:</label>
+            <input type="text" id="nome" placeholder="Ex: Aprovado pela Coordenação" required>
+        </div>
+
+        <div class="form-group">
+            <label for="finalizaSolicitacao">Finaliza a Solicitação?</label>
+            <select id="finalizaSolicitacao" required>
+                <option value="false">Não (O fluxo continua para a próxima etapa)</option>
+                <option value="true">Sim (Encerra o pedido e permite download)</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="perfilPermitido">Perfil Exclusivo (Opcional):</label>
+            <select id="perfilPermitido">
+                <option value="">Geral</option>
+                <option value="SECRETARIA">Exclusivo da Secretaria</option>
+                <option value="COORDENADOR">Exclusivo da Coordenação</option>
+            </select>
+            <span class="dica">Selecione "Geral" para status como "Aberto", "Em Análise" ou "Reprovado".</span>
+        </div>
+
+        <button type="submit">Cadastrar Status</button>
+    </form>
+
+    <hr>
+
+    <h2>Status Cadastrados</h2>
+    <table>
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>Finaliza?</th>
+            <th>Perfil Restrito</th>
+            <th>Ação</th>
+        </tr>
+        </thead>
+        <tbody id="tabelaStatusBody">
+        <tr><td colspan="5">Carregando status...</td></tr>
+        </tbody>
+    </table>
+
+    <button type="button" class="btn-voltar" onclick="window.location.href='/menu'">Voltar ao Menu</button>
+</div>
+
+<script src="/cadastro-status.js"></script>
+</body>
+</html>
