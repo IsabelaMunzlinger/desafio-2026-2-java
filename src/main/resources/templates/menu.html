@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu Principal</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f2f5;
+            padding: 40px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .area-restrita {
+            display: none; 
+            padding: 20px; 
+            border: 1px solid #ddd; 
+            border-radius: 6px;
+            margin-top: 20px; 
+            background-color: #f9f9f9;
+        }
+        h1 { color: #003366; }
+        h2 { color: #333; margin-bottom: 15px; }
+        button {
+            padding: 10px 15px;
+            background-color: #0056b3;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-right: 10px;
+            margin-bottom: 10px;
+        }
+        button:hover { background-color: #004494; }
+        .btn-sair {
+            background-color: #dc3545;
+            margin-top: 30px;
+        }
+        .btn-sair:hover { background-color: #c82333; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1 id="boasVindas">Carregando painel...</h1>
+
+    <div id="menuAluno" class="area-restrita">
+        <h2>Área do Aluno</h2>
+        <button onclick="window.location.href='/solicitar-documento'">Nova Solicitação de Documento</button>
+        <button onclick="window.location.href='/meus-pedidos'">Meus Pedidos</button>
+    </div>
+
+    <div id="menuCoordenador" class="area-restrita">
+        <h2>Área do Coordenador</h2>
+        <button onclick="window.location.href='/fila-trabalho'">Analisar Documentos Pendentes</button>
+    </div>
+
+    <div id="menuSecretaria" class="area-restrita">
+        <h2>Área da Secretaria</h2>
+        <button onclick="window.location.href='/fila-trabalho'">Analisar Documentos Pendentes</button>
+        <button onclick="window.location.href='/cadastro-matriculas'">Matrícula</button>
+    </div>
+
+    <div id="menuAdmin" class="area-restrita">
+        <h2>Área do Administrador</h2>
+        <p>Escolha o que deseja gerenciar:</p>
+        <button onclick="window.location.href='/cadastro-cursos'">Cursos</button>
+        <button onclick="window.location.href='/cadastro-usuarios'">Usuários</button>
+        <button onclick="window.location.href='/cadastro-documentos'">Documentos</button>
+        <button onclick="window.location.href='/cadastro-fluxos'">Fluxos</button>
+        <button onclick="window.location.href='/cadastro-matriculas'">Matrícula</button>
+        <button onclick="window.location.href='/cadastro-status'">Status</button>
+        <button onclick="window.location.href='/estatisticas'">Dashboard</button>
+
+    </div>
+
+    <button class="btn-sair" onclick="sair()">Sair (Logout)</button>
+</div>
+
+<script src="/menu.js"></script>
+</body>
+</html>
