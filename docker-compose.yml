@@ -10,5 +10,27 @@ services:
     volumes:
       - mysql_data:/var/lib/mysql
 
+    healthcheck:
+        test: [ "CMD", "mysqladmin", "ping", "-h", "localhost" ]
+        interval: 5s
+        timeout: 5s
+        retries: 10
+
+  app:
+    build: .
+    container_name: api-documentos
+    ports:
+      - "8081:8081"
+    depends_on:
+      - db
+    restart: on-failure
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/${DB_NAME}?createDatabaseIfNotExist=true&useSSL=false&allowPublicKeyRetrieval=true
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: ${DB_PASS}
+      JWT_PASS: ${JWT_PASS}
+    env_file:
+      - .env
+
 volumes:
   mysql_data:
