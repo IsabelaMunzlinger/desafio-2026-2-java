@@ -1,5 +1,6 @@
 package com.example.demo.model;
 
+import com.example.demo.model.enums.Perfil;
 import jakarta.persistence.*;
 import org.hibernate.envers.Audited;
 
@@ -18,6 +19,10 @@ public class Status {
     @Column(nullable = false)
     private boolean finalizaSolicitacao;
 
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = true)
+    private Perfil perfilPermitido;
+
     public Status() {}
 
     // Getters e Setters
@@ -29,4 +34,7 @@ public class Status {
 
     public boolean isFinalizaSolicitacao() { return finalizaSolicitacao; }
     public void setFinalizaSolicitacao(boolean finalizaSolicitacao) { this.finalizaSolicitacao = finalizaSolicitacao; }
+
+    public Perfil getPerfilPermitido() { return perfilPermitido; }
+    public void setPerfilPermitido(Perfil perfilPermitido) { this.perfilPermitido = perfilPermitido; }
 }
