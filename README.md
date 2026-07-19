@@ -16,7 +16,7 @@ Abra a pasta local do projeto
   cd pasta-do-projeto
 ```
 
-Rode o comando no terminal para fechar algum container aberto no Docker
+Rode o comando no terminal para fechar algum container aberto no Docker para evitar conflitos
 ```bash
   docker compose down -v
 ```
@@ -38,7 +38,7 @@ Entregas do projeto:
 ## Funcionalidades
 
 - **Autenticação e Autorização:** Sistema de login com tokens JWT e controle de acesso baseado em perfis (Aluno, Secretaria, Coordenador, Admin).
-- **Máquina de Estados de Documentos:** Fluxo de aprovação dinâmico que de acordo com o fluxo de cada setor.
+- **Máquina de Estados de Documentos:** Fluxo de aprovação dinâmico de acordo com o fluxo cadastrado para cada setor.
 - **Geração de PDF:** Emissão automática de documentos utilizando o JasperReports.
 - **Casos teste:** Banco de dados populado automaticamente na primeira execução através de um `DataSeeder`, facilitando os testes.
 - **Conteinerizado:** Infraestrutura completa rodando via Docker e Docker Compose, sem necessidade de instalar dependências locais.
