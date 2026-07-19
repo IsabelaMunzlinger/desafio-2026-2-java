@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Fluxo de Documentos</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f2f5;
+            padding: 40px;
+            margin: 0;
+        }
+        .container {
+            max-width: 700px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            color: #003366;
+            margin-top: 0;
+            border-bottom: 2px solid #f0f2f5;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        .aviso {
+            background-color: #e9ecef;
+            padding: 12px 15px;
+            border-left: 4px solid #17a2b8;
+            border-radius: 4px;
+            margin-bottom: 25px;
+            font-size: 0.95em;
+            color: #555;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #333;
+        }
+        select, input {
+            width: 100%;
+            padding: 10px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            font-family: inherit;
+            box-sizing: border-box;
+            font-size: 15px;
+        }
+        select:focus, input:focus {
+            outline: none;
+            border-color: #0056b3;
+        }
+
+        .etapa-box {
+            background: #f8f9fa;
+            padding: 15px;
+            border: 1px solid #dee2e6;
+            border-radius: 6px;
+            margin-bottom: 15px;
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+        .etapa-box span {
+            font-weight: bold;
+            color: #003366;
+            white-space: nowrap;
+        }
+
+        hr {
+            margin: 30px 0;
+            border: 0;
+            border-top: 2px solid #f0f2f5;
+        }
+
+        button {
+            padding: 10px 15px;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            font-family: inherit;
+            transition: background-color 0.2s;
+        }
+
+        .btn-adicionar {
+            background-color: #17a2b8;
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+        .btn-adicionar:hover { background-color: #138496; }
+
+        .btn-remover {
+            background-color: #dc3545;
+            padding: 8px 12px;
+            font-size: 14px;
+        }
+        .btn-remover:hover { background-color: #c82333; }
+
+        .btn-salvar {
+            background-color: #28a745;
+            width: 100%;
+            font-weight: 600;
+            padding: 12px;
+        }
+        .btn-salvar:hover { background-color: #218838; }
+
+        .btn-voltar {
+            background-color: #6c757d;
+            width: 100%;
+            margin-top: 15px;
+        }
+        .btn-voltar:hover { background-color: #5a6268; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Definir Fluxo do Documento</h2>
+    <div class="aviso">Se nenhuma etapa for adicionada, o documento será de <strong>emissão automática</strong>.</div>
+
+    <form id="formFluxo">
+        <div class="form-group">
+            <label for="selectDocumento">1. Selecione o Documento</label>
+            <select id="selectDocumento" required>
+                <option value="">Carregando documentos...</option>
+            </select>
+        </div>
+
+        <hr>
+
+        <div class="form-group">
+            <label>2. Ordem de Aprovação</label>
+            <div id="listaEtapas">
+            </div>
+
+            <button type="button" class="btn-adicionar" onclick="adicionarEtapa()">+ Adicionar Etapa de Conferência</button>
+        </div>
+
+        <button type="submit" class="btn-salvar">Salvar Fluxo</button>
+    </form>
+
+    <button type="button" class="btn-voltar" onclick="window.location.href='/menu'">Voltar ao Menu</button>
+</div>
+
+<script th:src="@{/cadastro-fluxos.js}"></script>
+</body>
+</html>
