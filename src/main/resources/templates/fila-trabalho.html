@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fila de Trabalho</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f2f5;
+            padding: 40px;
+            margin: 0;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            color: #003366;
+            margin-top: 0;
+            border-bottom: 2px solid #f0f2f5;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+        th, td { border-bottom: 1px solid #ddd; padding: 12px; text-align: left; vertical-align: middle; }
+        th { background-color: #f8f9fa; color: #333; font-weight: 600; }
+
+        select {
+            padding: 8px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            font-family: inherit;
+            font-size: 14px;
+            margin-right: 8px;
+        }
+        select:focus {
+            outline: none;
+            border-color: #0056b3;
+        }
+
+        button {
+            padding: 8px 12px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            font-family: inherit;
+            font-weight: 600;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+
+        .btn-voltar {
+            display: block;
+            text-align: center;
+            text-decoration: none;
+            background-color: #6c757d;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 4px;
+            margin-top: 25px;
+            width: 100%;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+        .btn-voltar:hover {
+            background-color: #5a6268;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Fila de Trabalho (Análise de Pedidos)</h2>
+
+    <table id="tabelaFila">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Aluno</th>
+            <th>Documento</th>
+            <th>Status Atual</th>
+            <th>Prioridade</th>
+            <th>Ação</th>
+        </tr>
+        </thead>
+        <tbody id="tabelaFilaBody">
+        </tbody>
+    </table>
+
+    <a th:href="@{/menu}" class="btn-voltar">Voltar ao Menu</a>
+</div>
+
+<script th:src="@{/fila-trabalho.js}"></script>
+</body>
+</html>
